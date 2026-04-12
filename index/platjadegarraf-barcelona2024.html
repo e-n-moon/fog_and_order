@@ -1,1 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>research field — photographic archive</title>
 
+<style>
+:root {
+  --bg: #d6d9df;
+  --ink: #0f1722;
+  --ink-soft: rgba(15, 23, 34, 0.55);
+  --border: rgba(15, 23, 34, 0.18);
+  --grid: rgba(15, 23, 34, 0.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+}
+
+/* top system nav */
+.topbar {
+  position: fixed;
+  top: 18px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  text-transform: lowercase;
+  letter-spacing: 1.4px;
+  color: var(--ink-soft);
+  z-index: 10;
+}
+
+.topbar a {
+  text-decoration: none;
+  color: var(--ink);
+  opacity: 0.8;
+}
+
+.topbar a:hover {
+  opacity: 0.4;
+}
+
+/* layout */
+.wrapper {
+  padding: 120px 24px 80px;
+  display: flex;
+  justify-content: center;
+}
+
+/* strict archive column */
+.archive {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 1px solid var(--grid);
+  border-right: 1px solid var(--grid);
+}
+
+/* each record = rigid row */
+.record {
+  display: grid;
+  grid-template-columns: 60px 1fr 120px;
+  align-items: center;
+  gap: 12px;
+
+  padding: 18px 16px;
+  border-bottom: 1px solid var(--grid);
+}
+
+/* index number */
+.id {
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 1.2px;
+}
+
+/* image block */
+.thumb {
+  width: 100%;
+  height: 140px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--ink-soft);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(15%) contrast(1.05);
+}
+
+/* metadata */
+.meta {
+  font-size: 10px;
+  text-transform: lowercase;
+  color: var(--ink-soft);
+  text-align: right;
+  letter-spacing: 1px;
+}
+
+/* hover = analytical highlight */
+.record:hover {
+  background: rgba(15, 23, 34, 0.03);
+}
+
+/* subtle grid overlay feel */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  opacity: 0.35;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <a href="index.html">index</a>
+  <div>research field / photographic archive</div>
+</div>
+
+<div class="wrapper">
+  <div class="archive">
+
+    <div class="record">
+      <div class="id">01</div>
+      <div class="thumb">
+        <img src="images/photo1.jpg" />
+      </div>
+      <div class="meta">coastal scan / 2026</div>
+    </div>
+
+    <div class="record">
+      <div class="id">02</div>
+      <div class="thumb">
+        <img src="images/photo2.jpg" />
+      </div>
+      <div class="meta">surface erosion / 2026</div>
+    </div>
+
+    <div class="record">
+      <div class="id">03</div>
+      <div class="thumb">
+        <img src="images/photo3.jpg" />
+      </div>
+      <div class="meta">fog density field / 2026</div>
+    </div>
+
+    <div class="record">
+      <div class="id">04</div>
+      <div class="thumb">
+        <img src="images/photo4.jpg" />
+      </div>
+      <div class="meta">lithic boundary / 2026</div>
+    </div>
+
+    <div class="record">
+      <div class="id">05</div>
+      <div class="thumb">
+        <img src="images/photo5.jpg" />
+      </div>
+      <div class="meta">coastal segmentation / 2026</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
