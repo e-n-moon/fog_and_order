@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>pladja de garraf — barcelona 2024</title>
 
 <style>
 :root {
@@ -23,12 +24,11 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--ink);
-  letter-spacing: 0.2px;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-/* top system nav */
-.topbar {
+/* top navigation */
+.top {
   position: fixed;
   top: 18px;
   left: 24px;
@@ -36,90 +36,23 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 11px;
-  text-transform: lowercase;
   letter-spacing: 1.4px;
+  text-transform: lowercase;
   color: var(--ink-soft);
   z-index: 10;
 }
 
-.topbar a {
-  text-decoration: none;
+.top a {
   color: var(--ink);
+  text-decoration: none;
   opacity: 0.8;
 }
 
-.topbar a:hover {
+.top a:hover {
   opacity: 0.4;
 }
 
-/* layout */
-.wrapper {
-  padding: 120px 24px 80px;
-  display: flex;
-  justify-content: center;
-}
-
-/* strict archive column */
-.archive {
-  width: 100%;
-  max-width: 760px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border-left: 1px solid var(--grid);
-  border-right: 1px solid var(--grid);
-}
-
-/* each record = rigid row */
-.record {
-  display: grid;
-  grid-template-columns: 60px 1fr 120px;
-  align-items: center;
-  gap: 12px;
-
-  padding: 18px 16px;
-  border-bottom: 1px solid var(--grid);
-}
-
-/* index number */
-.id {
-  font-size: 11px;
-  color: var(--ink-soft);
-  letter-spacing: 1.2px;
-}
-
-/* image block */
-.thumb {
-  width: 100%;
-  height: 140px;
-  border: 1px solid var(--border);
-  overflow: hidden;
-  background: var(--ink-soft);
-}
-
-.thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: grayscale(15%) contrast(1.05);
-}
-
-/* metadata */
-.meta {
-  font-size: 10px;
-  text-transform: lowercase;
-  color: var(--ink-soft);
-  text-align: right;
-  letter-spacing: 1px;
-}
-
-/* hover = analytical highlight */
-.record:hover {
-  background: rgba(15, 23, 34, 0.03);
-}
-
-/* subtle grid overlay feel */
+/* 🌫️ GRID FIELD OVERLAY (subtle research layer) */
 body::before {
   content: "";
   position: fixed;
@@ -128,63 +61,151 @@ body::before {
     linear-gradient(to right, var(--grid) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
   background-size: 80px 80px;
-  pointer-events: none;
   opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* editorial container */
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 5vw;
+}
+
+/* header */
+.header {
+  margin-bottom: 60px;
+}
+
+.header h1 {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+}
+
+.header p {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  max-width: 520px;
+}
+
+/* image blocks */
+.hero,
+.full {
+  margin-bottom: 70px;
+}
+
+.hero img,
+.full img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+}
+
+/* spreads */
+.spread {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 60px;
+  margin-bottom: 70px;
+}
+
+.spread img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+}
+
+/* caption */
+.caption {
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+  max-width: 520px;
+}
+
+/* rhythm */
+.block {
+  margin-bottom: 110px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .spread {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  body::before {
+    background-size: 60px 60px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
+<div class="top">
   <a href="index.html">index</a>
-  <div>research field / photographic archive</div>
+  <div>pladja de garraf — barcelona 2024</div>
 </div>
 
-<div class="wrapper">
-  <div class="archive">
+<div class="page">
 
-    <div class="record">
-      <div class="id">01</div>
-      <div class="thumb">
-        <img src="images/DO01020548.JPG" />
-      </div>
-      <div class="meta">coastal scan / 2026</div>
-    </div>
-
-    <div class="record">
-      <div class="id">02</div>
-      <div class="thumb">
-        <img src="images/DO01020591.jpeg" />
-      </div>
-      <div class="meta">surface erosion / 2026</div>
-    </div>
-
-    <div class="record">
-      <div class="id">03</div>
-      <div class="thumb">
-        <img src="images/DO01020593.jpeg" />
-      </div>
-      <div class="meta">fog density field / 2026</div>
-    </div>
-
-    <div class="record">
-      <div class="id">04</div>
-      <div class="thumb">
-        <img src="images/DO01020595.jpeg" />
-      </div>
-      <div class="meta">lithic boundary / 2026</div>
-    </div>
-
-    <div class="record">
-      <div class="id">05</div>
-      <div class="thumb">
-        <img src="images/photo5.jpg" />
-      </div>
-      <div class="meta">coastal segmentation / 2026</div>
-    </div>
-
+  <div class="header">
+    <h1>pladja de garraf — barcelona 2024</h1>
+    <p>
+      an editorial sequence documenting shoreline conditions, atmospheric variation,
+      and spatial decay along the catalan coast.
+    </p>
   </div>
+
+  <div class="hero block">
+    <img src="images/photo1.jpg" />
+    <div class="caption">fig. 01 — coastal threshold under diffuse light</div>
+  </div>
+
+  <div class="spread block">
+    <div>
+      <img src="images/photo2.jpg" />
+      <div class="caption">fig. 02 — sediment boundary</div>
+    </div>
+
+    <div>
+      <img src="images/photo3.jpg" />
+      <div class="caption">fig. 03 — fog compression field</div>
+    </div>
+  </div>
+
+  <div class="full block">
+    <img src="images/photo4.jpg" />
+    <div class="caption">fig. 04 — erosion trace study</div>
+  </div>
+
+  <div class="spread block">
+    <div>
+      <img src="images/photo5.jpg" />
+      <div class="caption">fig. 05 — shoreline dissolution</div>
+    </div>
+
+    <div>
+      <img src="images/photo6.jpg" />
+      <div class="caption">fig. 06 — atmospheric fade line</div>
+    </div>
+  </div>
+
 </div>
 
 </body>
