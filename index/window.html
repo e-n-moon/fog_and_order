@@ -1,56 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>window</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #111;
-            color: #fff;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>natural history museum — london 2024</title>
 
-        header {
-            text-align: center;
-            padding: 20px;
-            font-size: 2em;
-            letter-spacing: 2px;
-        }
+<style>
+:root {
+  --bg: #d6d9df;
+  --ink: #0f1722;
+  --ink-soft: rgba(15, 23, 34, 0.55);
+  --border: rgba(15, 23, 34, 0.18);
+  --grid: rgba(15, 23, 34, 0.06);
+}
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 10px;
-            padding: 10px;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        .gallery img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
 
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-    </style>
+/* top navigation */
+.top {
+  position: fixed;
+  top: 18px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: lowercase;
+  color: var(--ink-soft);
+  z-index: 10;
+}
+
+.top a {
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.top a:hover {
+  opacity: 0.4;
+}
+
+/* grid field overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* layout */
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 5vw;
+}
+
+/* header */
+.header {
+  margin-bottom: 60px;
+}
+
+.header h1 {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+}
+
+.header p {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  max-width: 520px;
+}
+
+/* image systems */
+.hero,
+.full {
+  margin-bottom: 70px;
+}
+
+.hero img,
+.full img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--border);
+}
+
+/* spreads */
+.spread {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 60px;
+  margin-bottom: 70px;
+}
+
+.spread img {
+  width: 100%;
+  display: block;
+  border: 1px solid var(--border);
+}
+
+/* captions */
+.caption {
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+  max-width: 520px;
+}
+
+/* spacing rhythm */
+.block {
+  margin-bottom: 110px;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .spread {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  body::before {
+    background-size: 60px 60px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-<header>My Photography Blog</header>
+<div class="top">
+  <a href="index.html">index</a>
+  <div>natural history museum — london 2024</div>
+</div>
 
-<div class="gallery">
-    <img src="index/images/photo1.jpg" alt="Photo 1">
-    <img src="index/images/photo2.jpg" alt="Photo 2">
-    <img src="index/images/photo3.jpg" alt="Photo 3">
-    <img src="index/images/photo4.jpg" alt="Photo 4">
-    <img src="index/images/photo5.jpg" alt="Photo 5">
-    <img src="index/images/photo6.jpg" alt="Photo 6">
-    <img src="index/images/photo7.jpg" alt="Photo 7">
+<div class="page">
+
+  <div class="header">
+    <h1>natural history museum — london 2024</h1>
+    <p>
+      a photographic study of interior structure, material articulation, and
+      spatial sequencing within the natural history museum.
+    </p>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero block">
+    <img src="images/london1.jpg" />
+    <div class="caption">fig. 01 — central hall / vertical structure and light falloff</div>
+  </div>
+
+  <!-- SPREAD -->
+  <div class="spread block">
+    <div>
+      <img src="images/london2.jpg" />
+      <div class="caption">fig. 02 — structural detail / carved stone and repetition</div>
+    </div>
+
+    <div>
+      <img src="images/london3.jpg" />
+      <div class="caption">fig. 03 — upper gallery / light filtering through vaulted space</div>
+    </div>
+  </div>
+
+  <!-- FULL -->
+  <div class="full block">
+    <img src="images/london4.jpg" />
+    <div class="caption">fig. 04 — interior corridor / compression and directional framing</div>
+  </div>
+
+  <!-- FINAL IMAGE -->
+  <div class="full">
+    <img src="images/london5.jpg" />
+    <div class="caption">fig. 05 — facade condition / ornament and surface variation</div>
+  </div>
+
 </div>
 
 </body>
