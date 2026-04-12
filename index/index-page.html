@@ -62,6 +62,8 @@
       padding-right: 24px;
     }
 
+
+  
     .index-list {
       display: flex;
       flex-direction: column;
@@ -69,36 +71,49 @@
       max-width: 380px;
       width: 100%;
     }
-
+    
+    /* single clean link row */
     .index-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
+    
       font-size: 12px;
       letter-spacing: 0.8px;
       text-transform: lowercase;
       text-decoration: none;
+    
       color: var(--ink);
       padding-left: 14px;
+    
       position: relative;
+      border-bottom: 1px solid transparent;
     }
-
+    
+    /* soft bullet */
     .index-item::before {
       content: "•";
       position: absolute;
       left: 0;
-      font-size: 12px;
       color: var(--ink-soft);
     }
-
-    .index-item span:last-child {
+    
+    /* left label */
+    .title {
+      color: var(--ink);
+    }
+    
+    /* right metadata */
+    .year {
       color: var(--ink-soft);
       font-size: 10px;
     }
-
+    
+    /* hover = fog fade */
     .index-item:hover {
-      opacity: 0.6;
+      opacity: 0.55;
     }
+    
     .nav-link {
       color: var(--ink);
       text-decoration: none;
@@ -122,28 +137,55 @@
   <div class="wrapper">
     <div class="index-list">
 
-      <a class="index-item" href="#">
-        <a href="coast.html" class="nav-link">coast</a>
-        <span>2026</span>
+      <a class="index-item" href="coast.html">
+        <span class="title">coast</span>
+        <span class="year">2026</span>
+      </a>
+    
+      <a class="index-item" href="coast.html">
+        <span class="title">coast</span>
+        <span class="year">2026</span>
+      </a>
+    
+      <a class="index-item" href="coast.html">
+        <span class="title">coast</span>
+        <span class="year">2026</span>
+      </a>
+    
+      <a class="index-item" href="coast.html">
+        <span class="title">coast</span>
+        <span class="year">2026</span>
       </a>
 
-      <a class="index-item" href="#">
-         <a href="coast.html" class="nav-link">coast</a>
-        <span>2026</span>
-      </a>
-
-      <a class="index-item" href="#">
-        <a href="coast.html" class="nav-link">coast</a>
-        <span>2026</span>
-      </a>
-
-      <a class="index-item" href="#">
-        <a href="coast.html" class="nav-link">coast</a>
-        <span>2026</span>
-      </a>
+</div>
 
     </div>
   </div>
 
 </body>
 </html>
+
+
+<div class="index-list">
+
+  <a class="index-item" href="coast.html">
+    <span class="title">coast</span>
+    <span class="year">2026</span>
+  </a>
+
+  <a class="index-item" href="coast.html">
+    <span class="title">coast</span>
+    <span class="year">2026</span>
+  </a>
+
+  <a class="index-item" href="coast.html">
+    <span class="title">coast</span>
+    <span class="year">2026</span>
+  </a>
+
+  <a class="index-item" href="coast.html">
+    <span class="title">coast</span>
+    <span class="year">2026</span>
+  </a>
+
+</div>
