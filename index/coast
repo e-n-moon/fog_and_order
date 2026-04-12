@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Photography Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #111;
+            color: #fff;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            font-size: 2em;
+            letter-spacing: 2px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<header>coast</header>
+
+<div class="gallery">
+    <img src="index/images/photo1.jpg" alt="Photo 1">
+    <img src="index/images/photo2.jpg" alt="Photo 2">
+    <img src="index/images/photo3.jpg" alt="Photo 3">
+    <img src="index/images/photo4.jpg" alt="Photo 4">
+    <img src="index/images/photo5.jpg" alt="Photo 5">
+    <img src="index/images/photo6.jpg" alt="Photo 6">
+    <img src="index/images/photo7.jpg" alt="Photo 7">
+</div>
+
+</body>
+</html>
