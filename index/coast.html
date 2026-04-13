@@ -54,6 +54,12 @@ body {
   padding: 120px 24px 80px;
 }
 
+/* content container */
+.content {
+  width: 100%;
+  max-width: 720px;
+}
+
 /* header */
 .header {
   margin-bottom: 60px;
@@ -72,11 +78,9 @@ body {
   color: var(--ink-soft);
   max-width: 520px;
 }
-  
-/* single-column gallery */
+
+/* gallery */
 .gallery {
-  width: 100%;
-  max-width: 720px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -133,59 +137,62 @@ body::before {
 
 <a class="home" href="index.html">home</a>
 
-
-<div class="header">
-    <h1>catalan coastal light</h1>
-    <p>
-      midday light studies of structures along the shore of beach in Garraf, Spain. 
-    </p>
-</div>
 <div class="wrapper">
-  <div class="gallery">
+  <div class="content">
 
-    <figure class="img">
-      <img src="images/DO01020339.jpeg" alt="coast 1"/>
-      <figcaption>01 — shoreline drift</figcaption>
-    </figure>
+    <div class="header">
+      <h1>catalan coastal light</h1>
+      <p>
+        midday light studies of structures along the shore of beach in Garraf, Spain. 
+      </p>
+    </div>
 
-    <figure class="img">
-      <img src="images/DO01020342.jpeg" alt="coast 2"/>
-      <figcaption>02 — tide line</figcaption>
-    </figure>
+    <div class="gallery">
 
-    <figure class="img">
-      <img src="images/DO01020353.JPG" alt="coast 3"/>
-      <figcaption>03 — wind field</figcaption>
-    </figure>
+      <figure class="img">
+        <img src="images/DO01020339.jpeg" alt="coast 1"/>
+        <figcaption>01 — shoreline drift</figcaption>
+      </figure>
 
-    <figure class="img">
-      <img src="images/DO01020354.JPG" alt="coast 4"/>
-      <figcaption>04 — erosion edge</figcaption>
-    </figure>
+      <figure class="img">
+        <img src="images/DO01020342.jpeg" alt="coast 2"/>
+        <figcaption>02 — tide line</figcaption>
+      </figure>
 
-    <figure class="img">
-      <img src="images/DO01020355.JPG" alt="coast 5"/>
-      <figcaption>05 — low fog water</figcaption>
-    </figure>
+      <figure class="img">
+        <img src="images/DO01020353.JPG" alt="coast 3"/>
+        <figcaption>03 — wind field</figcaption>
+      </figure>
 
-    <figure class="img">
-      <img src="images/DO01020356.JPG" alt="coast 6"/>
-      <figcaption>06 — salt horizon</figcaption>
-    </figure>
+      <figure class="img">
+        <img src="images/DO01020354.JPG" alt="coast 4"/>
+        <figcaption>04 — erosion edge</figcaption>
+      </figure>
 
-    <figure class="img">
-      <img src="images/IMG_1203.jpeg" alt="coast 7"/>
-      <figcaption>07 — coastal absence</figcaption>
-    </figure>
+      <figure class="img">
+        <img src="images/DO01020355.JPG" alt="coast 5"/>
+        <figcaption>05 — low fog water</figcaption>
+      </figure>
 
+      <figure class="img">
+        <img src="images/DO01020356.JPG" alt="coast 6"/>
+        <figcaption>06 — salt horizon</figcaption>
+      </figure>
+
+      <figure class="img">
+        <img src="images/IMG_1203.jpeg" alt="coast 7"/>
+        <figcaption>07 — coastal absence</figcaption>
+      </figure>
+
+    </div>
   </div>
 </div>
-  
+
 <script>
 document.addEventListener('contextmenu', function (e) {
   e.preventDefault();
 });
 </script>
-  
+
 </body>
 </html>
