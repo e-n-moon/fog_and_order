@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>subscribe — fog and order</title>
+
+  <style>
+:root {
+  --bg: #d6d9df;
+  --ink: #0f1722;
+  --ink-soft: rgba(15, 23, 34, 0.55);
+  --border: rgba(15, 23, 34, 0.18);
+  --mist: rgba(15, 23, 34, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+}
+
+/* NAV */
+.index {
+  position: fixed;
+  top: 18px;
+  right: 48px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.9;
+}
+.index:hover { opacity: 0.5; }
+
+.about {
+  position: fixed;
+  top: 18px;
+  right: 120px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.9;
+}
+.about:hover { opacity: 0.5; }
+
+.subscribe {
+  position: fixed;
+  top: 18px;
+  right: 190px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.5;
+}
+
+/* LAYOUT */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 420px;
+  align-items: center;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+}
+
+/* FORM */
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink);
+  letter-spacing: 1px;
+  text-transform: lowercase;
+}
+
+input::placeholder {
+  color: var(--ink-soft);
+}
+
+button {
+  padding: 10px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--mist);
+}
+
+#status {
+  font-size: 11px;
+  opacity: 0.6;
+  height: 14px;
+}
+  </style>
+</head>
+
+<body>
+
+  <a class="index" href="index/index-page.html" target="_blank">index</a>
+  <a class="about" href="about.html">about</a>
+  <a class="subscribe" href="subscribe.html">subscribe</a>
+
+  <section class="hero">
+    <div class="container">
+      <h2>enter your email</h2>
+
+      <form id="subscribe-form">
+        <input type="email" id="email" placeholder="email" required>
+        <button type="submit">submit</button>
+      </form>
+
+      <div id="status"></div>
+    </div>
+  </section>
+
+<script>
+const SUPABASE_URL = "https://rlydzdllftnaqisvwegf.supabase.co";
+const SUPABASE_KEY = "sb_publishable_K1GANmU25DW5egK9RWNXvg_5dxQvA2V";
+
+const form = document.getElementById("subscribe-form");
+const emailInput = document.getElementById("email");
+const status = document.getElementById("status");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const email = emailInput.value.trim();
+  if (!email) return;
+
+  status.textContent = "submitting...";
+
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/subscribers`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_KEY,
+        "Authorization": `Bearer ${SUPABASE_KEY}`,
+        "Prefer": "return=minimal"
+      },
+      body: JSON.stringify({ email })
+    });
+
+    if (res.ok) {
+      status.textContent = "archived";
+      emailInput.value = "";
+    } else {
+      status.textContent = "error";
+    }
+  } catch (err) {
+    status.textContent = "failed";
+  }
+});
+</script>
+
+</body>
+</html>
