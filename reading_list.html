@@ -1,1 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>reading list — fog and order</title>
 
+  <style>
+:root {
+  --bg: #d6d9df;
+  --ink: #0f1722;
+  --ink-soft: rgba(15, 23, 34, 0.55);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+/* NAV */
+.index, .about, .subscribe, .reading {
+  position: fixed;
+  top: 18px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.index { right: 48px; }
+.about { right: 120px; }
+.subscribe { right: 190px; }
+.reading { right: 280px; opacity: 0.5; }
+
+.index:hover,
+.about:hover,
+.subscribe:hover {
+  opacity: 0.4;
+}
+
+/* LAYOUT */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 80px 24px;
+}
+
+.container {
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* TYPOGRAPHY */
+h2 {
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+}
+
+/* LIST (PLAIN TEXT) */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.item {
+  opacity: 0.9;
+}
+
+.meta {
+  font-size: 11px;
+  opacity: 0.55;
+  margin-left: 6px;
+}
+
+/* FOOT */
+.note {
+  font-size: 11px;
+  opacity: 0.5;
+  margin-top: 10px;
+}
+  </style>
+</head>
+
+<body>
+
+  <a class="index" href="index/index-page.html" target="_blank">index</a>
+  <a class="about" href="about.html">about</a>
+  <a class="subscribe" href="subscribe.html">subscribe</a>
+  <a class="reading" href="reading.html">reading</a>
+
+  <section class="hero">
+    <div class="container">
+      <h2>reading list</h2>
+
+      <div class="list">
+        <div class="item">the book of disquiet — fernando pessoa <span class="meta">notes / fragments</span></div>
+        <div class="item">invisible cities — italo calvino <span class="meta">fiction / structure</span></div>
+        <div class="item">a field guide to getting lost — rebecca solnit <span class="meta">essay / memory</span></div>
+        <div class="item">the society of the spectacle — guy debord <span class="meta">theory / critique</span></div>
+        <div class="item">on lying in architecture — jonathan hill <span class="meta">architecture / essay</span></div>
+      </div>
+
+      <div class="note">updated irregularly</div>
+    </div>
+  </section>
+
+</body>
+</html>
