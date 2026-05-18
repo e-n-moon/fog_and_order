@@ -1,1 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>about — fog and order</title>
 
+  <style>
+:root {
+  --bg: #d6d9df;
+  --ink: #0f1722;
+  --ink-soft: rgba(15, 23, 34, 0.55);
+  --border: rgba(15, 23, 34, 0.18);
+  --mist: rgba(15, 23, 34, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+/* navigation */
+
+.index {
+  position: fixed;
+  top: 18px;
+  right: 48px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.index:hover {
+  opacity: 0.5;
+}
+
+.about {
+  position: fixed;
+  top: 18px;
+  right: 120px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.about:hover {
+  opacity: 0.5;
+}
+
+.subscribe {
+  position: fixed;
+  top: 18px;
+  right: 190px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.subscribe:hover {
+  opacity: 0.5;
+}
+
+.reading-list {
+  position: fixed;
+  top: 18px;
+  right: 260px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.reading-list:hover {
+  opacity: 0.5;
+}
+
+/* layout */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 24px 80px;
+}
+
+.container {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* typography */
+
+.hero h2 {
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  line-height: 1.1;
+}
+
+.byline {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  opacity: 0.8;
+  margin-top: -10px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 20px;
+}
+
+.text p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+  max-width: 520px;
+}
+
+.footer {
+  margin-top: 10px;
+  opacity: 0.7;
+}
+
+/* optional image */
+
+.hero-image {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin-top: 18px;
+  border: 1px solid var(--border);
+}
+
+/* mobile */
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding-top: 100px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .text p {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .reading-list {
+    right: 220px;
+  }
+
+  .subscribe {
+    right: 155px;
+  }
+
+  .about {
+    right: 90px;
+  }
+
+  .index {
+    right: 24px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <a class="index" href="index/index-page.html">index</a>
+  <a class="about" href="about.html">about</a>
+  <a class="reading-list" href="reading_list.html">reading</a>
+  <a class="subscribe" href="subscribe.html">subscribe</a>
+
+  <section class="hero">
+    <div class="container">
+
+      <h2>about</h2>
+
+      <div class="byline">
+        notes on attention, memory, and atmosphere
+      </div>
+
+      <!-- optional image -->
+      <!--
+      <img 
+        src="images/about-image.jpg" 
+        alt="about image" 
+        class="hero-image"
+      >
+      -->
+
+      <div class="text">
+
+        <p>
+          Fog and Order is a small collection of photographs,
+          books, notes, and passing observations.
+        </p>
+
+        <p>
+          I made this site as a slower alternative to social media —
+          a place to keep track of the things that continue to stay
+          with me.
+        </p>
+
+        <p>
+          Most of the photographs are taken while walking without
+          much of a plan. The reading list is made up of books that
+          changed the way I see, think, or pay attention.
+        </p>
+
+        <p>
+          I’m interested in atmosphere, memory, cities, systems,
+          and the quiet structure hidden inside ordinary life.
+        </p>
+
+        <p>
+          New work and occasional thoughts are shared through
+          the subscriber page.
+        </p>
+
+        <p class="footer">
+          thanks for visiting.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+<script>
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+});
+</script>
+
+</body>
+</html>
