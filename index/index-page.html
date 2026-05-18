@@ -3,162 +3,151 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>index — fog and order</title>
+  <title>fog and order</title>
 
   <style>
-    :root {
-  /* background (fog / paper / SF overcast) */
-      --bg: #d6d9df;
+:root {
+  --bg: #d6d9df;
+  --ink: #0f1722;
+  --ink-soft: rgba(15, 23, 34, 0.55);
+  --border: rgba(15, 23, 34, 0.18);
+  --mist: rgba(15, 23, 34, 0.08);
+}
 
-  /* primary ink (text / structure) */
-      --ink: #0f1722;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  /* secondary ink (subtext / captions / metadata) */
-      --ink-soft: rgba(15, 23, 34, 0.55);
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+}
 
-  /* structural lines (borders / dividers / frames) */
-      --border: rgba(15, 23, 34, 0.18);
+/* NAVIGATION (UPDATED) */
+.nav {
+  position: fixed;
+  top: 18px;
+  right: 48px;
 
-  /* ultra-faint layering (optional accents, hover states) */
-      --mist: rgba(15, 23, 34, 0.08);
-    }
+  display: flex;
+  gap: 28px;
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+}
 
-    body {
-      font-family: Helvetica, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.4;
-      letter-spacing: 0.2px;
-    }
+.nav a {
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
 
-    .home {
-      position: fixed;
-      top: 18px;
-      right: 48px;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: lowercase;
-      text-decoration: none;
-      color: var(--ink);
-      opacity: 0.9;
-    }
-
-    .home:hover {
-      opacity: 0.5;
-    }
-
-    .wrapper {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding-left: 12vw;
-      padding-right: 24px;
-    }
-
-
-  
-    .index-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      max-width: 380px;
-      width: 100%;
-    }
-    
-    /* single clean link row */
-    .index-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    
-      font-size: 12px;
-      letter-spacing: 0.8px;
-      text-transform: lowercase;
-      text-decoration: none;
-    
-      color: var(--ink);
-      padding-left: 14px;
-    
-      position: relative;
-      border-bottom: 1px solid transparent;
-    }
-    
-    /* soft bullet */
-    .index-item::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--ink-soft);
-    }
-    
-    /* left label */
-    .title {
-      color: var(--ink);
-    }
-    
-    /* right metadata */
-    .year {
-      color: var(--ink-soft);
-      font-size: 10px;
-    }
-    
-    /* hover = fog fade */
-    .index-item:hover {
-      opacity: 0.55;
-    }
-    
-    .nav-link {
-      color: var(--ink);
-      text-decoration: none;
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      text-transform: lowercase;
-      opacity: 0.9;
-      transition: opacity 0.2s ease;
-    }
-
-.nav-link:hover {
+.nav a:hover {
   opacity: 0.5;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 520px;
+  align-items: center;
+}
+
+.hero h2 {
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  line-height: 1.1;
+}
+
+.byline {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  opacity: 0.8;
+}
+
+.caption {
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--ink-soft);
+  max-width: 420px;
+  margin-top: 2px;
+}
+
+.image-placeholder {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: lowercase;
+  color: var(--ink-soft);
+  opacity: 0.85;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 20px auto 0 auto;
 }
   </style>
 </head>
 
 <body>
 
-  <a class="home" href="../index.html">home</a>
+  <!-- UPDATED NAV -->
+  <nav class="nav">
+    <a href="index/index-page.html" target="_blank">index</a>
+    <a href="about.html">about</a>
+    <a href="reading_list.html">reading</a>
+    <a href="subscribe.html">subscribe</a>
+  </nav>
 
-  <div class="wrapper">
-    <div class="index-list">
+  <section class="hero">
+    <div class="container">
+      <h2>fog and order</h2>
+      <div class="byline">studies in light, decay, and spatial order</div>
+      <div class="caption"></div>
 
-      <a class="index-item" href="coastal entropy: fort bragg.html">
-        <span class="title">coastal entropy: fort bragg</span>
-        <span class="year">2026</span>
-      </a>
-    
-      <a class="index-item" href="catalan_coastal_light.html">
-        <span class="title">catalan coastal light</span>
-        <span class="year">2024</span>
-      </a>
-    
-      <a class="index-item" href="natural-history-museum-london.html">
-        <span class="title">natural history museum, london</span>
-        <span class="year">2024</span>
-      </a>
-
-</div>
-
+      <div class="hero-image">
+        <img src="index/images/DO01020708.jpg" alt="Description" class="hero-image">
+      </div>
     </div>
-  </div>
+  </section>
+
+<script>
+document.addEventListener('contextmenu', function (e) {
+  e.preventDefault();
+});
+</script>
 
 </body>
 </html>
- 
-
-</div>
