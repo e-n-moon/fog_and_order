@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fog and order</title>
+  <title>index — fog and order</title>
 
   <style>
 :root {
   --bg: #d6d9df;
   --ink: #0f1722;
   --ink-soft: rgba(15, 23, 34, 0.55);
-  --border: rgba(15, 23, 34, 0.18);
-  --mist: rgba(15, 23, 34, 0.08);
+  --border: rgba(15, 23, 34, 0.14);
 }
 
 * {
@@ -26,13 +25,17 @@ body {
   color: var(--ink);
   line-height: 1.4;
   letter-spacing: 0.2px;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* NAVIGATION (UPDATED) */
+/* NAV */
+
 .nav {
   position: fixed;
   top: 18px;
-  right: 48px;
+  right: 32px;
 
   display: flex;
   gap: 28px;
@@ -53,101 +56,134 @@ body {
   opacity: 0.5;
 }
 
-/* HERO */
+/* INDEX */
 
-.hero {
+.index-page {
   min-height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 60px 24px;
+
+  padding: 120px 24px 80px;
 }
 
-.container {
+.index-container {
+  width: 100%;
+  max-width: 760px;
+
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  max-width: 520px;
-  align-items: center;
+  gap: 18px;
 }
 
-.hero h2 {
-  font-size: 40px;
-  font-weight: 400;
-  letter-spacing: 2px;
-  text-transform: lowercase;
-  line-height: 1.1;
-}
-
-.byline {
+.index-heading {
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: lowercase;
-  opacity: 0.8;
-}
-
-.caption {
-  font-size: 12px;
-  letter-spacing: 0.5px;
   color: var(--ink-soft);
-  max-width: 420px;
-  margin-top: 2px;
+
+  margin-bottom: 12px;
 }
 
-.image-placeholder {
-  margin-top: 30px;
-  width: 100%;
-  max-width: 520px;
-  aspect-ratio: 4 / 5;
-  border: 1px solid var(--border);
+/* ITEMS */
+
+.index-item {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
+  justify-content: space-between;
+  align-items: baseline;
+
+  padding: 14px 0;
+
+  border-top: 1px solid var(--border);
+
+  text-decoration: none;
+  color: var(--ink);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.index-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.index-item:hover {
+  opacity: 0.6;
+  transform: translateX(2px);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: lowercase;
+}
+
+.year {
+  font-size: 12px;
   letter-spacing: 1.5px;
   text-transform: lowercase;
   color: var(--ink-soft);
-  opacity: 0.85;
 }
 
-.hero-image {
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-  display: block;
-  margin: 20px auto 0 auto;
+/* MOBILE */
+
+@media (max-width: 640px) {
+
+  .nav {
+    right: 20px;
+    gap: 18px;
+    font-size: 11px;
+  }
+
+  .index-item {
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 18px;
+  }
 }
   </style>
 </head>
 
 <body>
 
-  <!-- UPDATED NAV -->
   <nav class="nav">
-    <a href="index/index-page.html" target="_blank">index</a>
-    <a href="reading_list.html">reading</a>
-    <a href="about.html">about</a>
-    <a href="subscribe.html">subscribe</a>
+    <a href="../index.html">home</a>
+    <a href="../about.html">about</a>
+    <a href="../reading_list.html">reading</a>
+    <a href="../subscribe.html">subscribe</a>
   </nav>
 
-  <section class="hero">
-    <div class="container">
-      <h2>fog and order</h2>
-      <div class="byline">studies in light, decay, and spatial order</div>
-      <div class="caption"></div>
+  <section class="index-page">
+    <div class="index-container">
 
-      <div class="hero-image">
-        <img src="index/images/DO01020708.jpg" alt="Description" class="hero-image">
+      <div class="index-heading">
+        archive / studies
       </div>
+
+      <a class="index-item" href="coastal entropy: fort bragg.html">
+        <span class="title">coastal entropy: fort bragg</span>
+        <span class="year">2026</span>
+      </a>
+
+      <a class="index-item" href="catalan_coastal_light.html">
+        <span class="title">catalan coastal light</span>
+        <span class="year">2024</span>
+      </a>
+
+      <a class="index-item" href="natural-history-museum-london.html">
+        <span class="title">natural history museum, london</span>
+        <span class="year">2024</span>
+      </a>
+
     </div>
   </section>
-
-<script>
-document.addEventListener('contextmenu', function (e) {
-  e.preventDefault();
-});
-</script>
 
 </body>
 </html>
